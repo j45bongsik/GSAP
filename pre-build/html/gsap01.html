@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('include/head.html')
+    <style>
+        
+    </style> 
+    <title>Title</title>
+</head>
+<body>
+    <div id="root">
+        <!--header-->
+        <header id="header" class="parallax__title">
+            <!-- @@include('include/header.html') -->
+            <h1>GSAP Parallax Effect01</h1>
+            <p>GSAP scrollTrigger - 애니메이션 기본 효과</p>
+            
+            <article>
+                <ul>
+                    <li class="active"><a href="gsap01.html">1</a></li>
+                    <li><a href="gsap02.html">2</a></li>
+                    <li><a href="gsap03.html">3</a></li>
+                    <li><a href="gsap04.html">4</a></li>
+                    <li><a href="gsap05.html">5</a></li>
+                    <li><a href="gsap06.html">6</a></li>
+                    <li><a href="gsap07.html">7</a></li>
+                    <li><a href="gsap08.html">8</a></li>
+                    <li><a href="gsap09.html">9</a></li>
+                    <li><a href="gsap10.html">10</a></li>
+                    <li><a href="gsap11.html">11</a></li>
+                    <li><a href="gsap12.html">12</a></li>
+                    <li><a href="gsap13.html">13</a></li>
+                    <li><a href="gsap14.html">14</a></li>
+                    <li><a href="gsap15.html">15</a></li>
+                </ul>
+            </article>
+
+        </header>
+        <!--header-->
+
+        <!--container-->
+        <main id="parallax__cont">
+            <section id="section1" class="parallax__item">
+                <span class="parallax__item__num">기본 애니메이션
+                    <span class="parallax__item__desc">
+                    </span>
+                </span>
+                
+                <div class="parallax__item__img"></div>
+
+                <article class="js navi-js">
+                    <pre class="brush:js">
+                        // 애니메이션을 구성할 태그를 변수로 지정
+                        const box1 = document.querySelector("#section1 .parallax__item__img");
+                        const box2 = document.querySelector("#section2 .parallax__item__img");
+                        const box3 = document.querySelector("#section3 .parallax__item__img");
+                        const box4 = document.querySelector("#section4 .parallax__item__img");
+                        const box5 = document.querySelector("#section5 .parallax__item__img");
+                        const box6 = document.querySelector("#section6 .parallax__item__img");
+                        const box7 = document.querySelector("#section7 .parallax__item__img");
+                        const box8 = document.querySelector("#section8 .parallax__item__img");
+                        const box9 = document.querySelector("#section9 .parallax__item__img");
+                    
+                        // 기본 애니메이션
+                        gsap.to(box1,{
+                            duration:2,
+                            x:500,
+                            borderRadius: 100,
+                            rotation: 360,
+                        })
+                    </pre>
+                </article>
+            </section>
+            <section id="section2" class="parallax__item">
+                <span class="parallax__item__num">trigger
+                    <span class="parallax__item__desc">
+                        스크롤 내릴시 애니메이션 실행할 요소가 영역에 도달하면 애니메이션 실행
+                    </span>
+                </span>
+                <div class="parallax__item__img"></div>
+                <article class="js navi-js">
+                    <pre class="brush:js">
+                        gsap.to(box2,{
+                            duration: 2,
+                            x: 500, 
+                            rotation: 360,
+                            borderRadius: 100,
+                            scrollTrigger: {
+                                trigger: box2, // 요소의 시작점 설정
+                            }
+                        });
+                    </pre>
+                </article>
+            </section>
+            <section id="section3" class="parallax__item">
+                <span class="parallax__item__num">toggleActions
+                    <span class="parallax__item__desc">
+                        스크롤 내릴시 : 시작점을 지날때(onEnter) / 종료점을 지날때(onLeave)<br />
+                        스크롤을 올릴때 : 종료점을 지날때(onEnterBack) / 시작점을 지날때 (onLeaveBack)<br />
+                        애니메이션 행동을 설정한다. play, pause, resume, reset, restart, complete, reverse, none 요소 값을 설정
+                    </span>
+                </span>
+                <div class="parallax__item__img"></div>
+                <article class="js navi-js">
+                    <pre class="brush:js">
+                        gsap.to(box3,{
+                            duration: 1,
+                            x:500,
+                            rotation: 360,
+                            borderRadius: 100,
+                            scrollTrigger: {
+                                trigger: box3, // 요소의 시작점 설정
+                                toggleActions: "play pause reverse none", // 순서대로 onEnter / onLeave / onEnterBack / onLeaveBack
+                            }
+                        });
+                    </pre>
+                </article>
+            </section>
+            <section id="section4" class="parallax__item">
+                <span class="parallax__item__num">start, end
+                    <span class="parallax__item__desc">
+                        에니메이션을 실행시킬 시작점과 종료지점을 설정
+                    </span>
+                </span>
+                <div class="parallax__item__img"></div>
+                <article class="js navi-js">
+                    <pre class="brush:js">
+                        gsap.to(box4,{
+                            duration: 1,
+                            x:500, 
+                            rotation: 360,
+                            borderRadius: 100,
+                            scrollTrigger: {
+                                trigger: box4, // 요소의 시작점 설정
+                                start: "top 50%", // 시작점
+                                end: "bottom 20%", // 종료점
+                                toggleActions: "play reverse restart pause",// 순서대로 onEnter / onLeave / onEnterBack / onLeaveBack
+                                markers: true, // 마커의 위치 확인
+                            }
+                        })
+                    </pre>
+                </article>
+            </section>
+            <section id="section5" class="parallax__item">
+                <span class="parallax__item__num">scrub
+                    <span class="parallax__item__desc">
+                        마우스 스크롤 위치에 따라 애니메이션 따라옴
+                    </span>
+                </span>
+                <div class="parallax__item__img"></div>
+                <article class="js navi-js">
+                    <pre class="brush:js">
+                        gsap.to(box5,{
+                            duration: 1,
+                            x: 500,
+                            rotation: 360,
+                            scrollTrigger: {
+                                trigger: box5, // 요소의 시작점 설정
+                                start: "top 60%", // 시작점
+                                end: "bottom 20%", // 종료점
+                                scrub: 5, // 마우스 스크롤 값에 따른 애니메이션 설정 (true 및 정수)
+                                markers: true, // 마커의 위치 확인
+                            }
+                        });
+                    </pre>
+                </article>
+            </section>
+            <section id="section6" class="parallax__item">
+                <span class="parallax__item__num">pin
+                    <span class="parallax__item__desc">
+                        애니메이션 실행하다가 지정한 종료점에 도달시 지정한 애니메이션 종료값으로 고정시킨다.
+                    </span>
+                </span>
+                <div class="parallax__item__img"></div>
+                <article class="js navi-js">
+                    <pre class="brush:js">
+                        gsap.to(box6,{
+                            duration: 2,
+                            x: 500,
+                            rotation: 360,
+                            borderRadius: 100,
+                            scrollTrigger: {
+                                trigger: box6, // 요소의 시작점 설정
+                                start: "top 50%", // 시작점
+                                end: "top 400px", // 종료점
+                                scrub: true, // 마우스 스크롤 값에 따른 애니메이션 설정 (true 및 정수)
+                                markers: true, // 마커의 위치 확인
+                                pin: true, // 고정시키기 위해 true
+                            }
+                        });
+                    </pre>
+                </article>
+            </section>
+            <section id="section7" class="parallax__item">
+                <span class="parallax__item__num">toggleClass
+                    <span class="parallax__item__desc">
+                        시작점에 도달하면 클래스를 추가시키고 종료점에 도착하면 클래스를 삭제한다.
+                    </span>
+                </span>
+                <div class="parallax__item__img"></div>
+                <article class="js navi-js">
+                    <pre class="brush:js">
+                        gsap.to(box7,{
+                            duration: 2,
+                            x: 500,
+                            rotation: 360,
+                            borderRadius: 100,
+                            scrollTrigger: {
+                                trigger: box7, // 요소의 시작점 설정
+                                start: "top center", // 시작점
+                                end: "bottom top", // 종료점
+                                scrub: true,  // 마우스 스크롤 값에 따른 애니메이션 설정 (true 및 정수)
+                                markers: true, // 마커의 위치 확인
+                                toggleClass: "active", // 추가할 클래스
+                                id: "box7" //마커의 이름을 변경
+                            }
+                        });
+                    </pre>
+                </article>
+            </section>
+            <section id="section8" class="parallax__item">
+                <span class="parallax__item__num">callback
+                    <span class="parallax__item__desc">
+                        시작점과 종료점을 지날때마다 콜백 함수가 제공된다 <br />
+                        onEnter / onLeave / onEnterBack / onLeaveBack / onUpdate / onToggle
+                    </span>
+                </span>
+                <div class="parallax__item__img"></div>
+                <article class="js navi-js">
+                    <pre class="brush:js">
+                        gsap.to(box8,{
+                            duration: 2,
+                            x: 500,
+                            rotation: 360,
+                            borderRadius: 100,
+                            scrollTrigger: {
+                                trigger: box8, // 요소의 시작점 설정
+                                start: "top center",
+                                end: "bottom 30%",
+                                scrub: true,
+                                markers: true,
+                                onEnter : () => {console.log("onEnter")},
+                                // onLeave : () => {console.log("onLeave")},
+                                // onEnterBack : () => {console.log("onEnterBack")},
+                                // onLeaveBack : () => {console.log("onLeaveBack")},
+                                // onUpdate : (self) => {console.log("onUpdate", self.progress.toFixed(3))},
+                                // onToggle : (self) => {console.log("onToggle", self.isActive)},
+                            }
+                        });
+                    </pre>
+                </article>
+            </section>
+        </main>
+        <!--//container-->
+
+        <script>
+            // 애니메이션을 구성할 태그를 변수로 지정
+            const box1 = document.querySelector("#section1 .parallax__item__img");
+            const box2 = document.querySelector("#section2 .parallax__item__img");
+            const box3 = document.querySelector("#section3 .parallax__item__img");
+            const box4 = document.querySelector("#section4 .parallax__item__img");
+            const box5 = document.querySelector("#section5 .parallax__item__img");
+            const box6 = document.querySelector("#section6 .parallax__item__img");
+            const box7 = document.querySelector("#section7 .parallax__item__img");
+            const box8 = document.querySelector("#section8 .parallax__item__img");
+            const box9 = document.querySelector("#section9 .parallax__item__img");
+        
+            // 기본 애니메이션
+            gsap.to(box1,{
+                duration:2,
+                x:500,
+                borderRadius: 100,
+                rotation: 360,
+            })
+
+            // trigger 스크롤을 내리면 요소가 영역에 오면 애니메이션 실행
+            gsap.to(box2,{
+                duration: 2,
+                x: 500, 
+                rotation: 360,
+                borderRadius: 100,
+                scrollTrigger: {
+                    trigger: box2, // 요소의 시작점 설정
+                }
+            });
+
+            // toggle Actions 
+            gsap.to(box3,{
+                duration: 1,
+                x:500,
+                rotation: 360,
+                borderRadius: 100,
+                scrollTrigger: {
+                    trigger: box3, // 요소의 시작점 설정
+                    toggleActions: "play pause reverse restart",// 순서대로 onEnter / onLeave / onEnterBack / onLeaveBack
+                }
+            });
+
+            // start, end 애니메이션의 시작과 종료지점을 설정
+            gsap.to(box4,{
+                duration: 1,
+                x:500, 
+                rotation: 360,
+                borderRadius: 100,
+                scrollTrigger: {
+                    trigger: box4, // 요소의 시작점 설정
+                    start: "top 50%", // 시작점
+                    end: "bottom 20%", // 종료점
+                    toggleActions: "play reverse restart pause",// 순서대로 onEnter / onLeave / onEnterBack / onLeaveBack
+                    // markers: true, // 마커의 위치 확인
+                }
+            })
+
+            // scrub 마우스 스크롤 값에 따라 애니메이션 실행
+            gsap.to(box5,{
+                duration: 1,
+                x: 500,
+                rotation: 360,
+                scrollTrigger: {
+                    trigger: box5, // 요소의 시작점 설정
+                    start: "top 60%", // 시작점
+                    end: "bottom 20%", // 종료점
+                    scrub: 5, // 마우스 스크롤 값에 따른 애니메이션 설정 (true 및 정수)
+                    // markers: true, // 마커의 위치 확인
+                }
+            });
+
+            //pin 고정시키는 역할을 한다 
+            gsap.to(box6,{
+                duration: 2,
+                x: 500,
+                rotation: 360,
+                borderRadius: 100,
+                scrollTrigger: {
+                    trigger: box6, // 요소의 시작점 설정
+                    start: "top 50%", // 시작점
+                    end: "top 400px", // 종료점
+                    scrub: true, // 마우스 스크롤 값에 따른 애니메이션 설정 (true 및 정수)
+                    // markers: true, // 마커의 위치 확인
+                    pin: true, // 고정시키기 위해 true
+                }
+            });
+        
+            //toggleClass
+            gsap.to(box7,{
+                duration: 2,
+                x: 500,
+                rotation: 360,
+                borderRadius: 100,
+                scrollTrigger: {
+                    trigger: box7, // 요소의 시작점 설정
+                    start: "top center", // 시작점
+                    end: "bottom top", // 종료점
+                    scrub: true,  // 마우스 스크롤 값에 따른 애니메이션 설정 (true 및 정수)
+                    // markers: true, // 마커의 위치 확인
+                    toggleClass: "active", // 추가할 클래스
+                    id: "box7" //마커의 이름을 변경
+                }
+            });
+
+            //callback 시작점과 종료점을 지날때마다 제공되는 콜백함수
+            gsap.to(box8,{
+                duration: 2,
+                x: 500,
+                rotation: 360,
+                borderRadius: 100,
+                scrollTrigger: {
+                    trigger: box8, // 요소의 시작점 설정
+                    start: "top center",
+                    end: "bottom 30%",
+                    scrub: true,
+                    markers: true,
+                    onEnter : () => {console.log("onEnter")},
+                    // onLeave : () => {console.log("onLeave")},
+                    // onEnterBack : () => {console.log("onEnterBack")},
+                    // onLeaveBack : () => {console.log("onLeaveBack")},
+                    // onUpdate : (self) => {console.log("onUpdate", self.progress.toFixed(3))},
+                    // onToggle : (self) => {console.log("onToggle", self.isActive)},
+                }
+            });
+
+        </script>
+
+        
+        <!--footer-->
+        <footer id="footer">
+            @@include('include/footer.html')
+        </footer>
+        <!--//footer-->
+    </div>
+</body>
+</html>

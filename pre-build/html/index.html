@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('include/head.html') 
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="root">
+        <!--header-->
+        <header id="header">
+            @@include('include/header.html')
+        </header>
+        <!--header-->
+
+        <!--container-->
+        <main id="container">
+            <!-- contents -->
+            <div id="contents">
+                <!-- content -->
+                <div class="content">
+                    <h3 class="hidden">본문 영역</h3>
+
+                    테스트
+
+                    
+                    <div id="lottie" class="darkmode night"></div>
+
+                    <script>
+
+                        const darkmodeAnimation = lottie.loadAnimation({
+                            container: document.getElementById('lottie'), // Replace with your container ID
+                            renderer: 'svg',
+                            loop: false,
+                            autoplay: false,
+                            path: '../images/lottie_darkmode.json' // Replace with the path to your Lottie JSON file
+                        });
+
+                        darkmodeAnimation.addEventListener('DOMLoaded', function() {
+                            darkmodeAnimation.goToAndStop(80, true);
+                        }); // 시작 프레임수 
+
+                        let isDarkModeOn = false;
+
+                        $('.darkmode').on('click', function() {
+                            if (!darkmodeAnimation.isPaused) return; // Prevent click event during animation playback
+                            if (!isDarkModeOn) {
+                                darkmodeAnimation.playSegments([80, 161], true);
+                                $(this).removeClass('day').addClass('night');
+                                isDarkModeOn = true;
+                            } else {
+                                darkmodeAnimation.playSegments([0, 80], true);
+                                $(this).removeClass('night').addClass('day');
+                                isDarkModeOn = false;
+                            }
+                        });
+
+                        $('.night').on('click', function() {
+                            if (!darkmodeAnimation.isPaused) return; // Prevent click event during animation playback
+                            if (!isDarkModeOn) {
+                                darkmodeAnimation.playSegments([80, 161], true);
+                                $('.darkmode').removeClass('day').addClass('night');
+                                isDarkModeOn = true;
+                            } else {
+                                darkmodeAnimation.playSegments([0, 80], true);
+                                $('.darkmode').removeClass('night').addClass('day');
+                                isDarkModeOn = false;
+                            }
+                        });
+
+                        fetch('../images/lottie_darkmode.json')
+                        .then(response => response.json())
+                        .then(lottieData => {
+                            const totalFrames = lottieData.op - lottieData.ip + 1;
+                            const playbackFrames = lottieData.op - lottieData.ip;
+
+                            console.log("Total frames: " + totalFrames);
+                            console.log("Playback frames: " + playbackFrames);
+                        })
+                        .catch(error => {
+                            console.log("Error loading Lottie JSON file:", error);
+                        }); // 프레임수 구하기
+                        
+                    </script>
+                </div>
+                <!-- //content -->
+            </div>
+            <!-- //contents -->
+            
+        </main>
+        <!--//container-->
+
+        <!--footer-->
+        <footer id="footer">
+            @@include('include/footer.html')
+        </footer>
+        <!--//footer-->
+    </div>
+</body>
+</html>

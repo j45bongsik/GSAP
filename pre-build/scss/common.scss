@@ -1,0 +1,136 @@
+@charset "utf-8";
+
+@import '_mixins';
+
+body {
+    font-weight: 300;
+    color: #fff;
+    background-color: #111;
+}
+
+
+
+.parallax__title {
+    position: fixed;
+    right: 20px; top: 20px; z-index: 1000;
+    h1 {
+        display: inline-block;
+        font-size: 30px; 
+        border-bottom: 1px dashed #fff;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        font-weight: 400;
+    }
+    p {
+        font-size: 16px;
+    }
+    article {
+        ul {
+            margin-top: 10px;
+            li {
+                display: inline-block;
+                a {
+                    display: flex;
+                    justify-content: center; align-items: center;
+                    width: 20px; height: 20px; border-radius: 50%;
+                    border: 1px dashed #fff;
+                    text-align: center;
+                    font-size: 12px;
+
+                }
+                &:not(:first-child) {margin-left: 5px;}
+                &.active {
+                    a {
+                        background: #fff;
+                        color: #000;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+#parallax__cont {
+    overflow: hidden;
+    .parallax__item {
+        width: 100%; 
+        height: 100vh;
+        position: relative;display: flex;
+        justify-content: center; align-items: center;
+        padding-top: 150px;
+        &:nth-child(2n) {
+            background: #222;
+        }
+        .parallax__item__num {
+            position: absolute; 
+            left: 40px; top: 150px; font-size: 36px;
+            text-align: left;
+            .parallax__item__desc {
+                display: block;
+                font-size: 16px;
+                color: #999;/* #0093ff */;
+            }
+        }
+        .parallax__item__img {
+            width: 10vw; height: 10vw;
+            background-color: #fff;
+            background-size: cover;
+            background-position: center;
+            
+        }
+        &:nth-child(1) {
+            .parallax__item__img {
+                background-image: url("https://webstoryboy.github.io/gsap2023/assets/img/images14.jpg");
+            }
+        }
+        &:nth-child(2) {
+            .parallax__item__img {
+                background-image: url("https://webstoryboy.github.io/gsap2023/assets/img/images15.jpg");
+            }
+        }
+        &:nth-child(3) {
+            .parallax__item__img {
+                background-image: url("https://webstoryboy.github.io/gsap2023/assets/img/images16.jpg");
+            }
+        }
+        &:nth-child(4) {
+            .parallax__item__img {
+                background-image: url("https://webstoryboy.github.io/gsap2023/assets/img/images17.jpg");
+            }
+        }
+        &:nth-child(5) {
+            .parallax__item__img {
+                background-image: url("https://webstoryboy.github.io/gsap2023/assets/img/images18.jpg");
+            }
+        }
+        &:nth-child(6) {
+            .parallax__item__img {
+                background-image: url("https://webstoryboy.github.io/gsap2023/assets/img/images06.jpg");
+            }
+        }
+        &:nth-child(7) {
+            .parallax__item__img {
+                background-image: url("https://webstoryboy.github.io/gsap2023/assets/img/images07.jpg");
+            }
+        }
+        &:nth-child(8) {
+            .parallax__item__img {
+                background-image: url("https://webstoryboy.github.io/gsap2023/assets/img/images08.jpg");
+            }
+        }
+        &:nth-child(9) {
+            .parallax__item__img {
+                background-image: url("https://webstoryboy.github.io/gsap2023/assets/img/images09.jpg");
+            }
+        }
+        .js {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            min-width: 600px;
+        }
+    }
+}
+

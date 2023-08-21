@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" > -->
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="format-detection" content="telephone=no,email=no,address=no">
+<meta name="author" content="">
+<meta name="description" content="">
+<meta name="keywords" content="keyword1, keyword2, keyword3~5">
+
+<!-- 오픈그래프 이미지의 경우 최소한 600 x 315 px은 되어야 하며, 1200 x 630 px을 권장함 -->
+<meta property="og:image" content="">
+<meta property="og:title" content="">
+<meta property="og:description" content="">
+<meta property="og:url" content="">
+<!-- 다음의 태그는 필수는 아니지만, 포함하는 것을 추천함 -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- 구글 검색결과 아이콘 및 파비콘 -->
+<link rel="shortcut icon" href="../images/favicon.ico">
+
+<!-- AOS 터치아이콘 -->
+<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="../images/favicon-96x96.png">
+
+<!-- IOS 터치아이콘 -->
+<link rel="apple-touch-icon" sizes="16x16" href="../images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="32x32" href="../images/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="96x96" href="../images/favicon-96x96.png">
+
+<link rel="stylesheet" href="../lib/swiper/css/swiper.css">
+<link rel="stylesheet" href="../lib/jquery-ui.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/hover.css">
+<link rel="stylesheet" href="../lib/sh/css/shThemeVscode.css">
+<script src="../lib/jquery-3.4.1.min.js"></script>
+<script src="../lib/jquery-ui.min.js"></script>
+<script src="../lib/swiper/js/swiper.js"></script>
+<script src="../lib/lottie/lottie.min.js"></script>
+<script src="../lib/gsap/v_3.12.2/gsap.min.js"></script>
+<script src="../lib/gsap/v_3.12.2/ScrollTrigger.min.js"></script>
+<script src="../lib/gsap/v_3.12.2/ScrollToPlugin.min.js"></script>
+<script src="../lib/sh/js/shCore.js"></script>
+<script src="../lib/sh/js/shBrushCss.js"></script>
+<script src="../lib/sh/js/shBrushJScript.js"></script>
+<script src="../lib/sh/js/shBrushXml.js"></script>
+<script src="../js/ui.js"></script>
+
+
+
+
+<script>
+    SyntaxHighlighter.defaults['gutter'] = false; 
+    SyntaxHighlighter.all();
+</script>	 
+    <style>
+        .parallax__item__title {
+            font-size: 5vw;
+            z-index: 100;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+        
+    </style>
+    <title>Title</title>
+</head>
+<body>
+    <div id="root">
+        <!--header-->
+        <header id="header" class="parallax__title">
+            
+            <h1>GSAP Parallax Effect03</h1>
+            <p>GSAP scrollTrigger - 배경 고정하기</p>
+            
+            <article>
+                <ul>
+                    <li><a href="gsap01.html">1</a></li>
+                    <li><a href="gsap02.html">2</a></li>
+                    <li class="active"><a href="gsap03.html">3</a></li>
+                    <li><a href="gsap04.html">4</a></li>
+                    <li><a href="gsap05.html">5</a></li>
+                    <li><a href="gsap06.html">6</a></li>
+                    <li><a href="gsap07.html">7</a></li>
+                    <li><a href="gsap08.html">8</a></li>
+                    <li><a href="gsap09.html">9</a></li>
+                    <li><a href="gsap10.html">10</a></li>
+                    <li><a href="gsap11.html">11</a></li>
+                    <li><a href="gsap12.html">12</a></li>
+                    <li><a href="gsap13.html">13</a></li>
+                    <li><a href="gsap14.html">14</a></li>
+                    <li><a href="gsap15.html">15</a></li>
+                </ul>
+            </article>
+
+        </header>
+        <!--header-->
+
+        <!--container-->
+        <main id="parallax__cont">
+
+            
+            <section id="section1" class="parallax__item">
+                <span class="parallax__item__num">panel 애니메이션
+                    <span class="parallax__item__desc">
+                        https://webstoryboy.co.kr/1911 참고
+
+                    </span>
+                </span>
+                <div class="parallax__item__img"></div>
+
+                <article class="js navi-js">
+                    <pre class="brush:js">
+                        //01 : panel 애니메이션 - 한개섹션 고정시키기
+                        const panel = document.querySelector("#section1");
+
+                        ScrollTrigger.create({
+                            trigger: panel,
+                            start: "top top",
+                            pin: true,
+                            pinSpacing: false
+                        });
+                
+
+                        //02 : panel 애니메이션 - 지정한 섹션만 고정시키기
+                        gsap.utils.toArray(".parallax__item").forEach((panel, i) => {
+                            if ([0, 3, 6, 7].includes(i)) { // Only pin specified sections
+                                ScrollTrigger.create({
+                                trigger: panel,
+                                start: "top top",
+                                pin: true,
+                                pinSpacing: false
+                                });
+                            }
+                        });
+
+                        //03 : panel 애니메이션 - 홀수or짝수 섹션만 고정시키기
+                        gsap.utils.toArray(".parallax__item").forEach((panel, i) => {
+                            // if (i % 2 !== 0) { // 홀수
+                            if (i % 2 === 0) { // 짝수
+                                ScrollTrigger.create({
+                                trigger: panel,
+                                start: "top top",
+                                pin: true,
+                                pinSpacing: false
+                                });
+                            }
+                        });
+
+                    </pre>
+                </article>
+                <h2 class="parallax__item__title">section1</h2>
+            </section>
+            <!-- //section1 -->
+    
+            <section id="section2" class="parallax__item">
+                <span class="parallax__item__num">02</span>
+                <div class="parallax__item__img"></div>
+                <article class="js navi-js">
+                    <pre class="brush:js">
+                        
+                        //04 : panel 애니메이션 - 전체 섹션 고정시키기
+                        gsap.utils.toArray(".parallax__item").forEach((panel, i) => {
+                            ScrollTrigger.create({
+                                trigger: panel,
+                                start: "top top",
+                                pin: true, 
+                                pinSpacing: false 
+                            });
+                        });
+
+                        //05 : panel 애니메이션 - 스냅 효과 적용
+                        let panels = gsap.utils.toArray(".parallax__item");
+                        let tops = panels.map(panel => ScrollTrigger.create({trigger: panel, start: "top top"}));
+
+                        panels.forEach((panel, i) => {
+                            ScrollTrigger.create({
+                                trigger: panel,
+                                start: () => panel.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
+                                pin: true, 
+                                pinSpacing: false 
+                            });
+                        });
+
+                        ScrollTrigger.create({
+                            snap: {
+                                snapTo: (progress, self) => {
+                                    let panelStarts = tops.map(st => st.start), 
+                                    snapScroll = gsap.utils.snap(panelStarts, self.scroll()); 
+                                    return gsap.utils.normalize(0, ScrollTrigger.maxScroll(window), snapScroll); 
+                                },
+                                duration: 0.5
+                            }
+                        });
+                    </pre>
+                </article>
+                <h2 class="parallax__item__title">section2</h2>
+            </section>
+            <!-- //section2 -->
+    
+            <section id="section3" class="parallax__item">
+                <span class="parallax__item__num">03</span>
+                <div class="parallax__item__img"></div>
+                <h2 class="parallax__item__title">section3</h2>
+            </section>
+            <!-- //section3 -->
+    
+            <section id="section4" class="parallax__item">
+                <span class="parallax__item__num">04</span>
+                <div class="parallax__item__img"></div>
+                <h2 class="parallax__item__title">section4</h2>
+            </section>
+            <!-- //section4 -->
+    
+            <section id="section5" class="parallax__item">
+                <span class="parallax__item__num">05</span>
+                <div class="parallax__item__img"></div>
+                <h2 class="parallax__item__title">section5</h2>
+            </section>
+            <!-- //section5 -->
+    
+            <section id="section6" class="parallax__item">
+                <span class="parallax__item__num">06</span>
+                <div class="parallax__item__img"></div>
+                <h2 class="parallax__item__title">section6</h2>
+            </section>
+            <!-- //section6 -->
+    
+            <section id="section7" class="parallax__item">
+                <span class="parallax__item__num">07</span>
+                <div class="parallax__item__img"></div>
+                <h2 class="parallax__item__title">section7</h2>
+            </section>
+            <!-- //section7 -->
+    
+            <section id="section8" class="parallax__item">
+                <span class="parallax__item__num">08</span>
+                <div class="parallax__item__img"></div>
+                <h2 class="parallax__item__title">section8</h2>
+            </section>
+            <!-- //section8 -->
+    
+            <section id="section9" class="parallax__item">
+                <span class="parallax__item__num">09</span>
+                <div class="parallax__item__img"></div>
+                <h2 class="parallax__item__title">section9</h2>
+            </section>
+            <!-- //section9 -->
+        </main>
+        <!--//container-->
+
+        <script>
+            
+            // //01 : panel 애니메이션 - 한개섹션 고정시키기
+            // const panel = document.querySelector("#section1");
+
+            // ScrollTrigger.create({
+            //     trigger: panel,
+            //     start: "top top",
+            //     pin: true,
+            //     pinSpacing: false
+            // });
+       
+
+            // //02 : panel 애니메이션 - 지정한 섹션만 고정시키기
+            // gsap.utils.toArray(".parallax__item").forEach((panel, i) => {
+            //     if ([0, 3, 6, 7].includes(i)) { // Only pin specified sections
+            //         ScrollTrigger.create({
+            //         trigger: panel,
+            //         start: "top top",
+            //         pin: true,
+            //         pinSpacing: false
+            //         });
+            //     }
+            // });
+
+            // //03 : panel 애니메이션 - 홀수or짝수 섹션만 고정시키기
+            // gsap.utils.toArray(".parallax__item").forEach((panel, i) => {
+            //     // if (i % 2 !== 0) { // 홀수
+            //     if (i % 2 === 0) { // 짝수
+            //         ScrollTrigger.create({
+            //         trigger: panel,
+            //         start: "top top",
+            //         pin: true,
+            //         pinSpacing: false
+            //         });
+            //     }
+            // });
+
+            // //04 : panel 애니메이션 - 전체 섹션 고정시키기
+            // gsap.utils.toArray(".parallax__item").forEach((panel, i) => {
+            //     ScrollTrigger.create({
+            //         trigger: panel,
+            //         start: "top top",
+            //         pin: true, 
+            //         pinSpacing: false 
+            //     });
+            // });
+
+            //05 : panel 애니메이션 - 스냅 효과 적용
+            let panels = gsap.utils.toArray(".parallax__item");
+            let tops = panels.map(panel => ScrollTrigger.create({trigger: panel, start: "top top"}));
+
+            panels.forEach((panel, i) => {
+                ScrollTrigger.create({
+                    trigger: panel,
+                    start: () => panel.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
+                    pin: true, 
+                    pinSpacing: false 
+                });
+            });
+
+            ScrollTrigger.create({
+                snap: {
+                    snapTo: (progress, self) => {
+                        let panelStarts = tops.map(st => st.start), 
+                        snapScroll = gsap.utils.snap(panelStarts, self.scroll()); 
+                        return gsap.utils.normalize(0, ScrollTrigger.maxScroll(window), snapScroll); 
+                    },
+                    duration: 0.5
+                }
+            });
+
+        </script>
+
+        
+        <!--footer-->
+        <footer id="footer">
+            
+        </footer>
+        <!--//footer-->
+    </div>
+</body>
+</html>

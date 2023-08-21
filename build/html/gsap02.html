@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" > -->
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="format-detection" content="telephone=no,email=no,address=no">
+<meta name="author" content="">
+<meta name="description" content="">
+<meta name="keywords" content="keyword1, keyword2, keyword3~5">
+
+<!-- 오픈그래프 이미지의 경우 최소한 600 x 315 px은 되어야 하며, 1200 x 630 px을 권장함 -->
+<meta property="og:image" content="">
+<meta property="og:title" content="">
+<meta property="og:description" content="">
+<meta property="og:url" content="">
+<!-- 다음의 태그는 필수는 아니지만, 포함하는 것을 추천함 -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- 구글 검색결과 아이콘 및 파비콘 -->
+<link rel="shortcut icon" href="../images/favicon.ico">
+
+<!-- AOS 터치아이콘 -->
+<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="../images/favicon-96x96.png">
+
+<!-- IOS 터치아이콘 -->
+<link rel="apple-touch-icon" sizes="16x16" href="../images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="32x32" href="../images/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="96x96" href="../images/favicon-96x96.png">
+
+<link rel="stylesheet" href="../lib/swiper/css/swiper.css">
+<link rel="stylesheet" href="../lib/jquery-ui.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/hover.css">
+<link rel="stylesheet" href="../lib/sh/css/shThemeVscode.css">
+<script src="../lib/jquery-3.4.1.min.js"></script>
+<script src="../lib/jquery-ui.min.js"></script>
+<script src="../lib/swiper/js/swiper.js"></script>
+<script src="../lib/lottie/lottie.min.js"></script>
+<script src="../lib/gsap/v_3.12.2/gsap.min.js"></script>
+<script src="../lib/gsap/v_3.12.2/ScrollTrigger.min.js"></script>
+<script src="../lib/gsap/v_3.12.2/ScrollToPlugin.min.js"></script>
+<script src="../lib/sh/js/shCore.js"></script>
+<script src="../lib/sh/js/shBrushCss.js"></script>
+<script src="../lib/sh/js/shBrushJScript.js"></script>
+<script src="../lib/sh/js/shBrushXml.js"></script>
+<script src="../js/ui.js"></script>
+
+
+
+
+<script>
+    SyntaxHighlighter.defaults['gutter'] = false; 
+    SyntaxHighlighter.all();
+</script>	 
+    <style>
+        
+        #section3 .parallax__item__img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+        }
+        #section5 {
+            flex-direction: column;
+        }
+        #section5 .parallax__item__text,
+        #section6 .parallax__item__text {
+            font-size: 5vw;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        #section7 .parallax__item__text {
+            font-size: 5vw;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #111;
+            padding: 30px;
+            width: 100%;
+            text-align: center;
+        }
+        #section8 {
+            flex-direction: column;
+        }
+        #section8 .parallax__item__text {
+            font-size: 2vw;
+            line-height: 1.5;
+            text-transform: uppercase;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+    <div id="root">
+        <!--header-->
+        <header id="header" class="parallax__title">
+            
+            <h1>GSAP Parallax Effect02</h1>
+            <p>GSAP scrollTrigger - Pin 애니메이션</p>
+            
+            <article>
+                <ul>
+                    <li><a href="gsap01.html">1</a></li>
+                    <li class="active"><a href="gsap02.html">2</a></li>
+                    <li><a href="gsap03.html">3</a></li>
+                    <li><a href="gsap04.html">4</a></li>
+                    <li><a href="gsap05.html">5</a></li>
+                    <li><a href="gsap06.html">6</a></li>
+                    <li><a href="gsap07.html">7</a></li>
+                    <li><a href="gsap08.html">8</a></li>
+                    <li><a href="gsap09.html">9</a></li>
+                    <li><a href="gsap10.html">10</a></li>
+                    <li><a href="gsap11.html">11</a></li>
+                    <li><a href="gsap12.html">12</a></li>
+                    <li><a href="gsap13.html">13</a></li>
+                    <li><a href="gsap14.html">14</a></li>
+                    <li><a href="gsap15.html">15</a></li>
+                </ul>
+            </article>
+
+        </header>
+        <!--header-->
+
+        <!--container-->
+        <main id="parallax__cont">
+
+            
+            <section id="section1" class="parallax__item">
+                <span class="parallax__item__num">애니메이션 주기
+                    <span class="parallax__item__desc">
+                    </span>
+                </span>
+                
+                <div class="parallax__item__img"></div>
+
+                <article class="js navi-js">
+                    <pre class="brush:js">
+                        // 01 : 애니메이션 주기
+                        const ani01 = gsap.timeline();
+                        ani01.to('#section1 .parallax__item__img',{rotation: 720, scale: 0, borderRadius: 200})
+                            .to('#section1 .parallax__item__img',{rotation: 0, scale: 1, borderRadius: 20})
+
+                        ScrollTrigger.create({
+                            animation: ani01,
+                            trigger: "section1",
+                            start: "top top",
+                            end: "+=2000",
+                            scrub: true,
+                            pin: true,
+                            anticipathPin: 1, // 핀 효과를 자연스럽게 해주는 속성
+                            markers: false,
+                        })
+                    </pre>
+                </article>
+            </section>
+
+            <section id="section2" class="parallax__item">
+                <span class="parallax__item__num">이미지 순차적으로 나오기
+                    <span class="parallax__item__desc">
+                        from 메서드는 to메서드의 반대라고 생각하면 된다. 
+                        현재 y의 값은 0이기 때문에 애니메이션을 -100에서 0으로 준다고 보면 된다
+                    </span>
+                </span>
+                <div class="parallax__item__img i1"></div>
+                <div class="parallax__item__img i2"></div>
+                <div class="parallax__item__img i3"></div>
+                <article class="js navi-js">
+                    <pre class="brush:js">
+                        //02 : 이미지 순차적으로 나오기
+                        const ani02 = gsap.timeline();
+                        ani02.from('#section2 .i1', {y: -100, autoAlpha: 0, borderRadius: 200})
+                            .from('#section2 .i2', {y: 100, autoAlpha: 0, borderRadius: 200})
+                            .from('#section2 .i3', {y: -100, autoAlpha: 0 , borderRadius: 200})
+
+                        ScrollTrigger.create({
+                            animation: ani02,
+                            trigger: "#section2",
+                            start: "top top",
+                            end: "+=2000",
+                            scrub: true,
+                            pin: true,
+                            anticipathPin: 1,
+                            markers: true
+                        })
+                    </pre>
+                </article>
+            </section>
+            <section id="section3" class="parallax__item">
+                <span class="parallax__item__num">이미지 랜덤으로 나오기
+                    <span class="parallax__item__desc">
+                    </span>
+                </span>
+                <div class="parallax__item__img"></div>
+                <div class="parallax__item__img"></div>
+                <div class="parallax__item__img"></div>
+                <div class="parallax__item__img"></div>
+                <div class="parallax__item__img"></div>
+                <div class="parallax__item__img"></div>
+                <article class="js navi-js">
+                    <pre class="brush:js">
+                        //03 : 이미지 랜덤으로 나오기
+                        const ani03 = gsap.timeline();
+                        ani03.from('#section3 .parallax__item__img', {
+                            autoAlpha : 0,
+                            y: -100,
+                            ease: "back.out(4)",
+                            stagger: { // 이미지 순서 셋팅
+                                amount: 3,
+                                from: "random"
+                            }
+                        })
+
+                        ScrollTrigger.create({
+                            animation: ani03,
+                            trigger: "#section3",
+                            start: "top top",
+                            end: "+=3000",
+                            scrub: true,
+                            pin: true,
+                            markers: true,
+                            anticipatePin: 1
+                        });
+                    </pre>
+                </article>
+            </section>
+            <section id="section4" class="parallax__item">
+                <span class="parallax__item__num">이미지 축소하기
+                    <span class="parallax__item__desc">
+                        이미지를 화면에맞게 vw, vh 설정 후 css혹은img 설정해놓은 원래 크기로 변경
+                    </span>
+                </span>
+                <div class="parallax__item__img"></div>
+                <article class="js navi-js">
+                    <pre class="brush:js">
+                        //04: 이미지 축소하기
+                        const ani04 = gsap.timeline();
+                        ani04.from('#section4 .parallax__item__img', {
+                            autoAlpha: 0,
+                            scale: 5,
+                            width: "100vw",
+                            height: "100vh",
+                        })
+
+                        ScrollTrigger.create({
+                            animation: ani04,
+                            trigger: "#section4",
+                            start: "top top",
+                            end: "+=2000",
+                            scrub: true,
+                            pin: true,
+                            markers: false,
+                            anticipathPin: 1
+                        })
+                    </pre>
+                </article>
+            </section>
+
+            <section id="section5" class="parallax__item">
+                <span class="parallax__item__num">텍스트 애니메이션 - 이동하기
+                    <span class="parallax__item__desc">
+                    </span>
+                </span>
+                <div class="parallax__item__text t1">section5</div>
+                <div class="parallax__item__text t2">section5</div>
+                <div class="parallax__item__text t3">section5</div>
+                <div class="parallax__item__text t4">section5</div>
+                <article class="js navi-js">
+                    <pre class="brush:js">
+                        //05 : 텍스트 애니메이션 - 이동하기
+                        const ani05 = gsap.timeline();
+                        ani05.to("#section5 .t1", {xPercent: 300}, "text")
+                            .to("#section5 .t2", {xPercent: -300}, "text",)
+                            .to("#section5 .t3", {xPercent: 300}, "text")
+                            .to("#section5 .t4", {xPercent: -300}, "text")
+
+                        ScrollTrigger.create({
+                            animation: ani05,
+                            trigger: "#section5",
+                            start: "top top",
+                            end: "+=3000",
+                            scrub: true,
+                            pin: true,
+                            markers: true,
+                            anticipathPin: 1
+                        })
+                    </pre>
+                </article>
+            </section>
+            <section id="section6" class="parallax__item">
+                <span class="parallax__item__num">텍스트 애니메이션 - 확대하기
+                    <span class="parallax__item__desc">
+                    </span>
+                </span>
+                <div class="parallax__item__text">section6</div>
+                <article class="js navi-js">
+                    <pre class="brush:js">
+                        //06 : 텍스트 애니메이션 - 확대하기
+                        const ani06 = gsap.timeline();
+                        ani06.to("#section6 .parallax__item__text", {scale: 60, duration: 2, autoAlpha: 1})
+                            .to("#section6 .parallax__item__text", {autoAlpha: 0})
+
+                        ScrollTrigger.create({
+                            animation: ani06,
+                            trigger: "#section6",
+                            start: "top top",
+                            end: "+=4000",
+                            scrub: true,
+                            pin: true,
+                            anticipathPin: 1,
+                            markers: false
+                        })
+                    </pre>
+                </article>
+            </section>
+            <section id="section7" class="parallax__item">
+                <span class="parallax__item__num">텍스트 애니메이션 - 롤링
+                    <span class="parallax__item__desc">
+                        텍스트 하나가 끝나고 바로 다음 텍스트가 나오기 때문에 "+=1"을 추가하여 효과를 조정
+                    </span>
+                </span>
+                <div class="parallax__item__text t1">text01</div>
+                <div class="parallax__item__text t2">text02</div>
+                <div class="parallax__item__text t3">text03</div>
+                <div class="parallax__item__text t4">text04</div>
+                <div class="parallax__item__text t5">text05</div>
+                <div class="parallax__item__text t6">text06</div>
+                <div class="parallax__item__text t7">text07</div>
+                <article class="js navi-js">
+                    <pre class="brush:js">
+                        //07 : 텍스트 애니메이션 - 롤링
+                        const ani07 = gsap.timeline();
+                        ani07.from("#section7 .t1", {autoAlpha: 0, duration: 1, y: 50},"+=1")
+                        .from("#section7 .t2", {autoAlpha: 0, duration: 1, y: 50},"+=1")
+                        .from("#section7 .t3", {autoAlpha: 0, duration: 1, y: 50},"+=1")
+                        .from("#section7 .t4", {autoAlpha: 0, duration: 1, y: 50},"+=1")
+                        .from("#section7 .t5", {autoAlpha: 0, duration: 1, y: 50},"+=1")
+                        .from("#section7 .t6", {autoAlpha: 0, duration: 1, y: 50},"+=1")
+                        .from("#section7 .t7", {autoAlpha: 0, duration: 1, y: 50},"+=1")
+
+                        ScrollTrigger.create({
+                            animation: ani07,
+                            trigger: "#section7",
+                            start: "top top",
+                            end: "+=6000",
+                            scrub: true,
+                            pin: true,
+                            markers: false,
+                            anticipathPin: 1
+                        })
+                    </pre>
+                </article>
+            </section>
+            <section id="section8" class="parallax__item">
+                <span class="parallax__item__num">택스트 애니메이션 - 들어오기
+                    <span class="parallax__item__desc">
+                        x값이 가운데로 설정되어있기에 from을 메서드에 innerWidth를 설정
+                    </span>
+                </span>
+                <div class="parallax__item__text t1">section8 title1</div>
+                <div class="parallax__item__text t2">section8 title2</div>
+                <div class="parallax__item__text t3">section8 title3</div>
+                <div class="parallax__item__img i1"></div>
+                <article class="js navi-js">
+                    <pre class="brush:js">
+                        //08 : 텍스트 애니메이션 - 들어오기
+                    const ani08 = gsap.timeline();
+                    ani08.from("#section8 .t1", {x: innerWidth * 1})
+                        .from("#section8 .t2", {x: innerWidth * -1})
+                        .from("#section8 .t3", {x: innerWidth * 1})
+                        .from("#section8 .i1", {x: innerWidth * 1, rotation: 360, scale: 1.5})
+
+                    ScrollTrigger.create({
+                        animation: ani08,
+                        trigger: "#section8",
+                        start: "top top",
+                        end: "+=4000",
+                        scrub: true,
+                        pin: true,
+                        markers: false,
+                        anticipathPin: 1
+                    })
+                    </pre>
+                </article>
+            </section>
+
+            <section id="section9" class="parallax__item">
+                <span class="parallax__item__num">이미지 확대하기</span>
+                <div class="parallax__item__img"></div>
+            </section>
+        </main>
+        <!--//container-->
+
+        <script>
+            // 01 : 애니메이션 주기
+            const ani01 = gsap.timeline();
+            ani01.to('#section1 .parallax__item__img',{rotation: 720, scale: 0, borderRadius: 200})
+                .to('#section1 .parallax__item__img',{rotation: 0, scale: 1, borderRadius: 20})
+
+            ScrollTrigger.create({
+                animation: ani01,
+                trigger: "#section1",
+                start: "top top",
+                end: "+=2000",
+                scrub: true,
+                pin: true,
+                anticipathPin: 1, // 핀 효과를 자연스럽게 해주는 속성
+                markers: false,
+            })
+
+            //02 : 이미지 순차적으로 나오기
+            const ani02 = gsap.timeline();
+            ani02.from('#section2 .i1', {y: -100, autoAlpha: 0, borderRadius: 200})
+                .from('#section2 .i2', {y: 100, autoAlpha: 0, borderRadius: 200})
+                .from('#section2 .i3', {y: -100, autoAlpha: 0 , borderRadius: 200})
+
+            ScrollTrigger.create({
+                animation: ani02,
+                trigger: "#section2",
+                start: "top top",
+                end: "+=2000",
+                scrub: true,
+                pin: true,
+                anticipathPin: 1,
+                markers: false
+            })
+
+            //03 : 이미지 랜덤으로 나오기
+            const ani03 = gsap.timeline();
+            ani03.from('#section3 .parallax__item__img', {
+                autoAlpha : 0,
+                y: -100,
+                ease: "back.out(4)",
+                stagger: {
+                    amount: 3,
+                    from: "random"
+                }
+            })
+
+            ScrollTrigger.create({
+                animation: ani03,
+                trigger: "#section3",
+                start: "top top",
+                end: "+=3000",
+                scrub: true,
+                pin: true,
+                markers: true,
+                anticipatePin: 1
+            });
+
+            //04: 이미지 축소하기
+            const ani04 = gsap.timeline();
+            ani04.from('#section4 .parallax__item__img', {
+                autoAlpha: 0,
+                scale: 5,
+                width: "100vw",
+                height: "100vh",
+            })
+
+            ScrollTrigger.create({
+                animation: ani04,
+                trigger: "#section4",
+                start: "top top",
+                end: "+=2000",
+                scrub: true,
+                pin: true,
+                markers: false,
+                anticipathPin: 1
+            })
+
+            //05 : 텍스트 애니메이션 - 이동하기
+            const ani05 = gsap.timeline();
+            ani05.to("#section5 .t1", {xPercent: 300}, "text")
+                .to("#section5 .t2", {xPercent: -300}, "text",)
+                .to("#section5 .t3", {xPercent: 300}, "text")
+                .to("#section5 .t4", {xPercent: -300}, "text")
+
+            ScrollTrigger.create({
+                animation: ani05,
+                trigger: "#section5",
+                start: "top top",
+                end: "+=3000",
+                scrub: true,
+                pin: true,
+                markers: true,
+                anticipathPin: 1
+            })
+
+            //06 : 텍스트 애니메이션 - 확대하기
+            const ani06 = gsap.timeline();
+            ani06.to("#section6 .parallax__item__text", {scale: 60, duration: 2, autoAlpha: 1})
+                .to("#section6 .parallax__item__text", {autoAlpha: 0})
+
+            ScrollTrigger.create({
+                animation: ani06,
+                trigger: "#section6",
+                start: "top top",
+                end: "+=4000",
+                scrub: true,
+                pin: true,
+                anticipathPin: 1,
+                markers: false
+            })
+
+            //07 : 텍스트 애니메이션 - 롤링
+            const ani07 = gsap.timeline();
+            ani07.from("#section7 .t1", {autoAlpha: 0, duration: 1, y: 50},"+=1")
+            .from("#section7 .t2", {autoAlpha: 0, duration: 1, y: 50},"+=1")
+            .from("#section7 .t3", {autoAlpha: 0, duration: 1, y: 50},"+=1")
+            .from("#section7 .t4", {autoAlpha: 0, duration: 1, y: 50},"+=1")
+            .from("#section7 .t5", {autoAlpha: 0, duration: 1, y: 50},"+=1")
+            .from("#section7 .t6", {autoAlpha: 0, duration: 1, y: 50},"+=1")
+            .from("#section7 .t7", {autoAlpha: 0, duration: 1, y: 50},"+=1")
+
+            ScrollTrigger.create({
+                animation: ani07,
+                trigger: "#section7",
+                start: "top top",
+                end: "+=4000",
+                scrub: true,
+                pin: true,
+                markers: false,
+                anticipathPin: 1
+            })
+
+            //08 : 텍스트 애니메이션 - 들어오기
+            const ani08 = gsap.timeline();
+            ani08.from("#section8 .t1", {x: innerWidth * 1})
+                .from("#section8 .t2", {x: innerWidth * -1})
+                .from("#section8 .t3", {x: innerWidth * 1})
+                .from("#section8 .i1", {x: innerWidth * 1, rotation: 360, scale: 1.5})
+
+            ScrollTrigger.create({
+                animation: ani08,
+                trigger: "#section8",
+                start: "top top",
+                end: "+=4000",
+                scrub: true,
+                pin: true,
+                markers: false,
+                anticipathPin: 1
+            })
+
+            //09 : 이미지 확대하기
+            const ani09 = gsap.timeline();
+            ani09.to("#section9 .parallax__item__img", {scale: 13})
+                .to("#section9 .parallax__item__img", {autoAlpha: 0})
+
+            ScrollTrigger.create({
+                animation: ani09,
+                trigger: "#section9",
+                start: "top top",
+                end: "+=500",
+                scrub: true,
+                pin: true,
+                markers: true,
+                anticipathPin: 1
+            })
+        </script>
+
+        
+        <!--footer-->
+        <footer id="footer">
+            
+        </footer>
+        <!--//footer-->
+    </div>
+</body>
+</html>
